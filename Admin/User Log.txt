@@ -934,3 +934,19 @@
   <message>Tester successfully logged in</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T22:50:45.867843Z</date>
+  <millis>1588200645867</millis>
+  <nanos>843000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
