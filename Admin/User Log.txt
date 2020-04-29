@@ -330,3 +330,607 @@
   <message>bmi test successfully logged in</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T19:59:05.863535Z</date>
+  <millis>1588190345863</millis>
+  <nanos>535000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>bmi test successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:18:19.864969Z</date>
+  <millis>1588191499864</millis>
+  <nanos>969000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>bmi test successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:26:48.443365Z</date>
+  <millis>1588192008443</millis>
+  <nanos>365000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:33:46.844798Z</date>
+  <millis>1588192426844</millis>
+  <nanos>798000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:35:29.299684Z</date>
+  <millis>1588192529299</millis>
+  <nanos>684000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:39:23.933591Z</date>
+  <millis>1588192763933</millis>
+  <nanos>591000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:40:29.185072Z</date>
+  <millis>1588192829185</millis>
+  <nanos>72000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:40:58.886026Z</date>
+  <millis>1588192858886</millis>
+  <nanos>26000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:41:45.906645Z</date>
+  <millis>1588192905906</millis>
+  <nanos>645000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:44:26.772223Z</date>
+  <millis>1588193066772</millis>
+  <nanos>223000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:45:46.615397Z</date>
+  <millis>1588193146615</millis>
+  <nanos>397000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:47:36.379276Z</date>
+  <millis>1588193256379</millis>
+  <nanos>276000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:48:27.172367Z</date>
+  <millis>1588193307172</millis>
+  <nanos>367000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:49:42.789647Z</date>
+  <millis>1588193382789</millis>
+  <nanos>647000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:51:37.920970Z</date>
+  <millis>1588193497920</millis>
+  <nanos>970000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:52:29.316563Z</date>
+  <millis>1588193549316</millis>
+  <nanos>563000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:54:12.787123Z</date>
+  <millis>1588193652787</millis>
+  <nanos>123000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:55:01.471457Z</date>
+  <millis>1588193701471</millis>
+  <nanos>457000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:57:27.565998Z</date>
+  <millis>1588193847565</millis>
+  <nanos>998000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:58:02.301404Z</date>
+  <millis>1588193882301</millis>
+  <nanos>404000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T20:58:40.335944Z</date>
+  <millis>1588193920335</millis>
+  <nanos>944000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T21:11:06.023808Z</date>
+  <millis>1588194666023</millis>
+  <nanos>808000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T21:12:03.291411Z</date>
+  <millis>1588194723291</millis>
+  <nanos>411000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T21:13:07.782234Z</date>
+  <millis>1588194787782</millis>
+  <nanos>234000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T21:15:01.318441Z</date>
+  <millis>1588194901318</millis>
+  <nanos>441000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T21:15:36.195418Z</date>
+  <millis>1588194936195</millis>
+  <nanos>418000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T21:16:36.801913Z</date>
+  <millis>1588194996801</millis>
+  <nanos>913000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T21:22:39.063174Z</date>
+  <millis>1588195359063</millis>
+  <nanos>174000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T21:24:38.519821Z</date>
+  <millis>1588195478519</millis>
+  <nanos>821000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T21:28:42.184582Z</date>
+  <millis>1588195722184</millis>
+  <nanos>582000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T21:29:26.431879Z</date>
+  <millis>1588195766431</millis>
+  <nanos>879000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T21:31:19.520984Z</date>
+  <millis>1588195879520</millis>
+  <nanos>984000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T21:31:59.201449Z</date>
+  <millis>1588195919201</millis>
+  <nanos>449000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T21:35:55.998858Z</date>
+  <millis>1588196155998</millis>
+  <nanos>858000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T21:37:22.487002Z</date>
+  <millis>1588196242487</millis>
+  <nanos>2000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T22:21:39.122367Z</date>
+  <millis>1588198899122</millis>
+  <nanos>367000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+<record>
+  <date>2020-04-29T22:21:58.492309Z</date>
+  <millis>1588198918492</millis>
+  <nanos>309000</nanos>
+  <sequence>1</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T22:22:14.308039Z</date>
+  <millis>1588198934308</millis>
+  <nanos>39000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Tester successfully logged in</message>
+</record>
+</log>
