@@ -90,6 +90,18 @@ public class Schedule implements Serializable {
 		return this.schedule;
 	}
 	
+	public static LocalTime convertToMilitary(String time, String ampm) {
+		String[] times = time.split(":");
+		if(ampm.equals("am")) {
+			return LocalTime.of(Integer.parseInt(times[0])%24, Integer.parseInt(times[1]));
+		}
+		else {
+			return LocalTime.of(Integer.parseInt(times[0])+ 12, Integer.parseInt(times[1]));
+		}
+	}
+	
+
+	
 	
 	
 }

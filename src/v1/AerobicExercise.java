@@ -25,10 +25,11 @@ public class AerobicExercise extends Exercise implements Scheduleable, Serializa
 	 * @param startTime the time for the exercise to start
 	 * @return A LocalTime array. element [0] is the start time and element [1] is the end time
 	 */
-	public LocalTime[] schedule(AerobicExercise exercise, LocalTime startTime){
+	public static LocalTime[] schedule(AerobicExercise exercise, LocalTime startTime){
+		;
 		LocalTime[] times = new LocalTime[2];
 		times[0] = startTime;
-		times[1] = startTime.plusHours(this.duration[0]).plusMinutes(this.duration[1]);
+		times[1] = startTime.plusHours(exercise.getDuration()[0]).plusMinutes(exercise.getDuration()[1]);
 		return times;
 		
 
