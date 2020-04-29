@@ -16,3 +16,11 @@ src/v1/User.class
 src/v1/AerobicExercise.class
 *.class
 *.class
+.gitignore
+*.class
+*.class
+*.class
+src/v1/AerobicExercise.class
+/bin/
+src/v1/Exercise.class
+src/v1/Exercise.class

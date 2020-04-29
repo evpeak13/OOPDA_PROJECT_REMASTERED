@@ -59,8 +59,8 @@ public class AerobicExercise extends Exercise implements Scheduleable, Serializa
 	 * @return small, detailed string of the class. Includes name and duration
 	 */
 	public String toString() {
-		return (super.getName() + ", Duration- " + this.duration[0] + ":" + this.duration[1] + ", Calories Burned: "
-				+ super.getCaloriesBurned());
+		return (getName() + ", Duration- " + this.duration[0] + ":" + this.duration[1] + ", Calories Burned: "
+				+ getCaloriesBurned());
 	}
 
 }

@@ -1,7 +1,9 @@
 package v1;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -17,47 +19,26 @@ import java.io.ObjectOutputStream;
 public class FileIO {
 	private static final boolean APPEND_MODE = true;
 	private static final boolean OVERWRITE_MODE = false;
+	private static final Logger LOGGER = Logger.getLogger(GUI.class.getName());
+	
 	public static void fileIO() {
-		new File("Admin").mkdir();
-		new File("Admin\\Users").mkdir();
-		try {
-			new File("Admin\\Usernames.txt").createNewFile();
-			//new File("Admin\\Food Catalog.txt").createNewFile();
-			//new File("Admin\\Exercises.txt").createNewFile();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 
-	public void newMonth(String username, int month) throws IOException{
-		String path = "Admin\\"+username;
-		String months = "month"+month+".txt";
-		new File(path+"\\Food\\"+months).createNewFile();
-		new File(path+"\\Exercise\\"+months).createNewFile();
-	}
-	public static void readUserInfo(String username) {
-		String path = "Admin\\"+username+"\\Details.txt";
-		try {
-			BufferedReader br = new BufferedReader(new FileReader(path));
-			String detail;
-			while((detail = br.readLine()) != null) {
-				System.out.println(detail);
-			}
-			br.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 	public static void writeUserInfo(User user) {
-		
+		new File("Admin").mkdir();
+		new File("Admin\\Users").mkdir();
 		try
 		{
+			new File("Admin\\Usernames.txt").createNewFile();
+			new File("Admin\\User Log.txt").createNewFile();
+			//new File("Admin\\Exercises.txt").createNewFile();
+		if(!usernames().contains(user.getUsername())) {
 		   Writer usernameWriter = new FileWriter("Admin\\Usernames.txt", APPEND_MODE);
 		   usernameWriter.write(user.getUsername() + "\n");
 		   usernameWriter.close();
+		}
 		   FileOutputStream fileStream = new FileOutputStream("Admin\\Users\\" + user.getUsername() + ".ser");
 		   ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
 		   objectStream.writeObject(user);
@@ -81,33 +62,16 @@ public class FileIO {
 		}
 		
 	}
+
 	
-	public static User retrieveUser(String username) {
+	public static Object deserialize(String filePath) {
 		try
 		{
-		    FileInputStream fileStream = new FileInputStream("Admin\\Users\\" + username + ".ser");
+		    FileInputStream fileStream = new FileInputStream(filePath);
 		    ObjectInputStream objectStream = new ObjectInputStream(fileStream);
-		    User user = (User) objectStream.readObject(); 
+		    Object obj = objectStream.readObject(); 
 		    objectStream.close();
-		    return user;  
-		    
-		}
-		catch (Exception e)
-		{
-		    System.out.println("Error when loading from file.");
-		    return null;
-		}
-		
-	}
-	
-	public static FoodList deserializeFoodList() {
-		try
-		{
-		    FileInputStream fileStream = new FileInputStream("Admin//foodlist.ser");
-		    ObjectInputStream objectStream = new ObjectInputStream(fileStream);
-		    FoodList list = (FoodList) objectStream.readObject(); 
-		    objectStream.close();
-		    return list;  
+		    return obj;  
 		    
 		}
 		catch (Exception e)
@@ -134,111 +98,44 @@ public class FileIO {
 		}
 		return  usernames;
 	}
-	public static HashMap<String, Integer> getFoodList() {
-		HashMap<String, Integer> foods = new HashMap<>();
-		String[] item = new String[2];
+	
+	public static void logLogin(String username) {
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("Admin\\Food Catalog.txt"));
-			String line = br.readLine();
-			while(line != null) {
-				item = line.split(":");
-				foods.put(item[0].trim(), Integer.parseInt(item[1].trim()));
-				line = br.readLine();
-			}
-			br.close();
+			FileHandler filehandler = new FileHandler("Admin\\User Log.txt", APPEND_MODE);
+			LOGGER.addHandler(filehandler);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return foods;
-	}
-	public static HashMap<String, Integer> getPersonalFoodList(String username) {
-		HashMap<String, Integer> foods = new HashMap<>();
-		String[] item = new String[2];
-		try {
-			BufferedReader br = new BufferedReader(new FileReader("Admin\\"+username + "\\PersonalFoods.txt"));
-			String line = br.readLine();
-			while(line != null) {
-				item = line.split(":");
-				foods.put(item[0].trim(), Integer.parseInt(item[1].trim()));
-				line = br.readLine();
-			}
-			br.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return foods;
-	}
-	public static void addFood(FoodItem food) {
-		try {
-			Writer writer = new FileWriter("Admin\\Food Catalog.txt", APPEND_MODE);
-			writer.write(food.toString() + "\n");
-			writer.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	public static void addPersonalFood(FoodItem food, String username) {
-		try {
-			Writer writer = new FileWriter("Admin\\"+username + "\\PersonalFoods.txt", APPEND_MODE);
-			writer.write(food.toString() + "\n");
-			writer.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		LOGGER.log(Level.INFO, username + " successfully logged in");
 	}
 	
-	public static HashMap<String, Integer> getExerciseList() {
-		HashMap<String, Integer> exercises = new HashMap<>();
-		String[] item = new String[2];
+	
+	/**
+	 * User for reserializing exerciselist/foodlist run
+	 * backendtest to update the lists
+	 * delete when serialized lists are complete
+	 */
+	public static void serializeLists(ExerciseList e) {
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("Admin\\Exercise Catalog.txt"));
-			String line = br.readLine();
-			while(line != null) {
-				item = line.split(":");
-				exercises.put(item[0].trim(), Integer.parseInt(item[1].trim()));
-				line = br.readLine();
-			}
-			br.close();
-		} catch (IOException e) {
+			FileOutputStream file = new FileOutputStream("Admin\\exerciselist.ser");
+			ObjectOutputStream out = new ObjectOutputStream(file);
+			out.writeObject(e);
+			out.close();
+		} catch (IOException ex) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ex.printStackTrace();
 		}
-		return exercises;
 	}
-	public static HashMap<String, Integer> getPersonalExerciseList(String username) {
-		HashMap<String, Integer> exercises = new HashMap<>();
-		String[] item = new String[2];
+	public static void serializeLists(FoodList f) {
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("Admin\\"+username + "\\PersonalExercises.txt"));
-			String line = br.readLine();
-			while(line != null) {
-				item = line.split(":");
-				exercises.put(item[0].trim(), Integer.parseInt(item[1].trim()));
-				line = br.readLine();
-			}
-			br.close();
-		} catch (IOException e) {
+			FileOutputStream file = new FileOutputStream("Admin\\foodlist.ser");
+			ObjectOutputStream out = new ObjectOutputStream(file);
+			out.writeObject(f);
+			out.close();
+		} catch (IOException ex) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ex.printStackTrace();
 		}
-		return exercises;
-	}
-
-	public static void addPersonalExercise(Exercise exercise, String username) {
-		try {
-			Writer writer = new FileWriter("Admin\\"+username + "\\PersonalExercises.txt", APPEND_MODE);
-			writer.write(exercise.toString() + "\n");
-			writer.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 	}
 
 }

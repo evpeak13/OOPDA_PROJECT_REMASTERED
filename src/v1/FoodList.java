@@ -11,6 +11,10 @@ import java.util.ArrayList;
 public class FoodList implements Serializable{
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1882253241654639752L;
+	/**
 	 * stores the FoodItems
 	 */
 	private ArrayList<FoodItem> foods;
@@ -62,6 +66,7 @@ public class FoodList implements Serializable{
 			return noDupe;
 		}
 	}
+	
 	
 	/**
 	 * removes the FoodItem with the specified name from the list

@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.time.LocalDate;
 
 public class BackendTestDriver {
 
@@ -246,23 +247,34 @@ public class BackendTestDriver {
 		el.addRepExercise("Lifting Weights", 10, 5, 300);
 		el.addRepExercise("Lifting Weights", 10, 10, 600);
 		el.addRepExercise("HIIT", 5, 7, 400);
-		try {
-			FileOutputStream filee = new FileOutputStream("exerciselist.txt");
-			ObjectOutputStream outt = new ObjectOutputStream(filee);
-			outt.writeObject(el);
-			outt.close();
-			FileOutputStream file = new FileOutputStream("foodlist.txt");
-			ObjectOutputStream out = new ObjectOutputStream(file);
-			out.writeObject(fl);
-			out.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-
-
-
+		FileIO.serializeLists(el);
+		FileIO.serializeLists(fl);
+		
+		User testUser = new User("Tester", "Hope this works", "Omnipotent", 200000, 10, 10, 2000);
+		FileIO.writeUserInfo(testUser);
+		DailyLog log1 = new DailyLog(2000);
+		DailyLog log2 = new DailyLog(2000);
+		
+		log1.setDate(LocalDate.of(2020,04,26));
+		log1.addFood(testUser.getFoodList().getFood("Scrambled Egg"));
+		log1.addFood(testUser.getFoodList().getFood("Sugar Cookie"));
+		log1.addFood(testUser.getFoodList().getFood("Cheerios"));
+		log1.addExercise(testUser.getExerciseList().getExercise("Rowing"));
+		log1.addExercise(testUser.getExerciseList().getExercise("Rowing"));
+		
+		log2.setDate(LocalDate.of(2020,04,27));
+		log2.addFood(testUser.getFoodList().getFood("Skim Milk"));
+		log2.addFood(testUser.getFoodList().getFood("Oreo"));
+		log2.addFood(testUser.getFoodList().getFood("Pancake"));
+		log2.addExercise(testUser.getExerciseList().getExercise("Swimming"));
+		log2.addExercise(testUser.getExerciseList().getExercise("Running"));
+		
+		testUser.getHistory().logDate(log1);
+		testUser.getHistory().logDate(log2);
+		FileIO.writeUserInfo(testUser);
+		
+		
+		
 	}
 
 }

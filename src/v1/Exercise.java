@@ -16,6 +16,7 @@ public abstract class Exercise implements Serializable {
 	private int caloriesBurned;
 	public Exercise(String name, int caloriesBurned) {
 		this.name = name;
+		this.caloriesBurned = caloriesBurned;
 	}
 	/**
 	 * Standard getter for the name field
@@ -33,11 +34,11 @@ public abstract class Exercise implements Serializable {
 	}
 	
 	public int getCaloriesBurned() {
-		return this.caloriesBurned;
+		return caloriesBurned;
 	}
 	
 	public void setCaloriesBurned(int newCaloriesBurned) {
-		this.caloriesBurned = newCaloriesBurned;
+		caloriesBurned = newCaloriesBurned;
 	}
 	
 	//Eventually override this so that Rep or Aerobic exercises can display their types?

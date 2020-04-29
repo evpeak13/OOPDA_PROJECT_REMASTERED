@@ -53,29 +53,6 @@ public class History implements Serializable {
 		}
 	}
 	
-	/**
-	 * Takes in date of format mm/dd/yyyy and retrieves the data from that day
-	 * @param date
-	 * @return the DailyLog of data from the specified date. 
-	 */
-	public DailyLog retrieveDate(String date) {
-		String[] token = date.split("/");
-		int[] numberToken = new int[3];
-		numberToken[0] = Integer.parseInt(token[0]);
-		numberToken[1] = Integer.parseInt(token[1]);
-		numberToken[2] = Integer.parseInt(token[2]);
-		
-		for(LocalDate key: previousDailylogs.keySet()) {
-			if(key.isEqual(LocalDate.of(numberToken[2], numberToken[0], numberToken[1]))) {
-				return previousDailylogs.get(key);
-				
-			}
-		}
-		return null;
-		
-		
-	}
-	
 	
 	/**
 	 * Overloaded Version of retrieve date. Uses a LocalDate object as a parameter and compares it to the history
@@ -91,9 +68,6 @@ public class History implements Serializable {
 			}
 		}
 		return null;
-		
-		
-		
 	}
 	
 	
@@ -147,22 +121,70 @@ public class History implements Serializable {
 	
 	
 	
+	public DailyLog retrieveLog(String date) {
+		
+		if(containsLog(date)) {
+			return previousDailylogs.get(getDate(date));
+		}
+		return null;
+	}
+	
+	public boolean validDateChecker(String date) {
+		if(date.split("/").length == 3) {
+			try {
+				String[] dateSplit = date.split("/");
+				LocalDate.of(Integer.parseInt(dateSplit[2]), Integer.parseInt(dateSplit[0]), Integer.parseInt(dateSplit[1]));
+			}
+			catch(Exception pe) {
+				return false;
+			}
+			return true;
+		}
+		else if(date.split("-").length == 3) {
+			try {
+				LocalDate.parse(date);
+			}
+			catch(Exception pe) {
+				return false;
+			}
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public boolean containsLog(String date) {
+		if(validDateChecker(date)) {
+			if(previousDailylogs.containsKey(getDate(date))) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public LocalDate getDate(String date) {
+		if(validDateChecker(date)) {
+			if(date.contains("/")) {
+				String[] dateSplit = date.split("/");
+				return LocalDate.of(Integer.parseInt(dateSplit[2]), Integer.parseInt(dateSplit[0]), Integer.parseInt(dateSplit[1]));
+			}
+			else {
+				return LocalDate.parse(date);
+			}
+		}
+		else {
+			return null;
+		}
+	}
+	
 	/**
-	 * Used solely for testing dailylog gui, delete when serilization is complete
+	 * Delete when backend user test is complete
 	 */
-	public void logDateTest() {
-		previousDailylogs.put(LocalDate.of(2020, 03, 21), currentDailyLog);
+	public void logDate(DailyLog d) {
+		previousDailylogs.put(d.getDate(), d);
 	}
-	
-	public DailyLog retrieveDateTest(String date) {
-		return previousDailylogs.get(LocalDate.parse(date));
-	}
-
-	
-	
-
-
-		
-		
-	
 }
+	
+
+

@@ -33,6 +33,16 @@ public class DailyLog implements Serializable{
     }
 
 	
+	public ArrayList<FoodItem> getFoodsEaten() {
+		return foodsEaten;
+	}
+
+
+	public void setFoodsEaten(ArrayList<FoodItem> foodsEaten) {
+		this.foodsEaten = foodsEaten;
+	}
+
+
 	/**
 	 * Standard getter for calories burned
 	 * @return calories burned as an int
@@ -41,6 +51,16 @@ public class DailyLog implements Serializable{
 		return caloriesBurned;
 	}
 	
+	public ArrayList<Exercise> getExercises() {
+		return exercises;
+	}
+
+
+	public void setExercises(ArrayList<Exercise> exercises) {
+		this.exercises = exercises;
+	}
+
+
 	/**
 	 * Standard setter for calories burned
 	 * @param caloriesBurned
@@ -83,6 +103,13 @@ public class DailyLog implements Serializable{
 	
 	public LocalDate getDate() {
 		return date;
+	}
+	
+	/**
+	 * Delete when finished with backend user test
+	 */
+	public void setDate(LocalDate date) {
+		this.date = date;
 	}
 	
 	/**

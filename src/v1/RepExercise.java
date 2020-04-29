@@ -32,7 +32,7 @@ public class RepExercise extends Exercise implements Serializable {
 	
 	public String toString() {
 		return(super.getName() + " Reps: "+ this.reps + ", intensity: " + this.intensity + ", Calories Burned: "
-				      + super.getCaloriesBurned());
+				      + getCaloriesBurned());
 		
 	}
 
