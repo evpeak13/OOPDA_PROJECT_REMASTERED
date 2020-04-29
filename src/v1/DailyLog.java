@@ -168,5 +168,15 @@ public class DailyLog implements Serializable{
         }
         return workouts;
     }
+    
+    public ArrayList<FoodItem> getUniqueFoods(){
+    	ArrayList<FoodItem> uniqueFoods = new ArrayList<FoodItem>();
+    	for(FoodItem food : foodsEaten) {
+    		for(FoodItem uniqueFood : uniqueFoods) {
+    			
+    		}
+    	}
+    	return null;
+    }
 
 }

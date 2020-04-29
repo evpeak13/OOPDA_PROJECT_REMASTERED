@@ -357,10 +357,13 @@ public class GUI extends Application{
 		Button close = new Button("Close");
 		close.setStyle("-fx-font-size: 20px");
 		close.setAlignment(Pos.TOP_RIGHT);
-		close.setOnAction(e -> {FileIO.writeUserInfo(currentUser);
-								Platform.exit();
-								System.exit(0);
-		currentTab.setAlignment(Pos.TOP_CENTER);
+		close.setOnAction(e -> {
+			if(currentUser != null) {
+				FileIO.writeUserInfo(currentUser);		
+			}
+			Platform.exit();
+			System.exit(0);
+			currentTab.setAlignment(Pos.TOP_CENTER);
 		});
 		top.setBackground(new Background(myBI));
 		//top.setStyle("-fx-border-color: black");
@@ -383,10 +386,17 @@ public class GUI extends Application{
 		logOutBtn.setMinSize(100, 100);
 		
 		logOutBtn.setOnAction(e -> {
+			FileIO.writeUserInfo(currentUser);
 			currentUser = null;
 			mainPane.setCenter(makeLoginPane());
-			btnPane.setVisible(false);
-			mainPane.setBackground(new Background(myBI));
+
+			mainPane.setBottom(null);
+			btnPane.getChildren().get(2).setDisable(true);
+			btnPane.getChildren().get(1).setDisable(false);
+			currentTab.setText("LOGIN");
+
+			
+			//btnPane.setVisible(false);
 		
 		});
 		
@@ -796,7 +806,7 @@ public class GUI extends Application{
 					}
 					
 				}
-				//listview = listNew;
+				updateList(listview, listNew);
 				
 				
 				
@@ -885,6 +895,10 @@ public class GUI extends Application{
 		
 		
 		}
+	
+	private static void updateList(ListView oldList, ListView newList){
+        oldList = newList;
+    }
 
 
 } 
