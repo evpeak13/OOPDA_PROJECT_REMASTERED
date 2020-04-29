@@ -10,10 +10,13 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -27,22 +30,31 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.Border;
+
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class GUI extends Application{
 
 	private static final int sW = 830;
 	private static final int sH = 500;
+	private static double xSpot = 0.0;
+	private static double ySpot = 0.0;
 	private static Stage stage;
 	private static BorderPane mainPane;
 	private static Pane loginPane, btnPane;
+	private static Label currentTab;
+
 	
 	private static User currentUser;
 	
@@ -65,6 +77,7 @@ public class GUI extends Application{
 		setupGUI();
 		stage.showAndWait();
 		
+
 	}
 	
 	@Override
@@ -79,11 +92,32 @@ public class GUI extends Application{
 		loginPane = makeLoginPane();	
 		mainPane = new BorderPane();
 		stage = new Stage();
+		currentTab = new Label("LOGIN");
+		currentTab.setStyle("-fx-font-size: 20px;"
+						  + "-fx-font-weight: bold;");
 
 		mainPane.setCenter(loginPane);
-		
+		mainPane.setTop(topPane());
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setTitle("Cyan is god");
+		stage.initStyle(StageStyle.UNDECORATED);
+		mainPane.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xSpot = event.getSceneX();
+                ySpot = event.getSceneY();
+            }
+        });
+
+        mainPane.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+            	if(ySpot < 50) {
+            		stage.setX(event.getScreenX() - xSpot);
+                    stage.setY(event.getScreenY() - ySpot);
+            	}   
+            }
+        });
 		stage.setHeight(sW);
 		stage.setHeight(sH);
 		stage.setMaxWidth(sW);
@@ -92,6 +126,7 @@ public class GUI extends Application{
 		stage.setMinHeight(sH);
 		stage.setResizable(false);
 		stage.setScene(new Scene(mainPane));
+		
 	}
 
 	private static HBox makeLoginPane() {
@@ -176,12 +211,16 @@ public class GUI extends Application{
 		useUserBtn.setOnAction((event) -> {
 
 			if(FileIO.usernames().contains(userSelection.getValue())) {
-				currentUser = (User)FileIO.deserialize("Admin/Users/" + userSelection.getValue() + ".ser");
+
+				currentUser = (User)FileIO.deserialize("Admin//Users//" + userSelection.getValue() + ".ser");
 				currentUser.getHistory().logDate();
 				mainPane.setCenter(makeDashboardPane());
+				currentTab.setText("DASHBOARD");
 				mainPane.setBottom(btnPane);
 				FileIO.logLogin(currentUser.getUsername());
-				System.out.println(currentUser.getBMI());
+
+				System.err.println("INFO: BMI was claculated to be " + currentUser.getBMI());
+
 			}
 			else {
 				userNotFound.setVisible(true);
@@ -191,7 +230,9 @@ public class GUI extends Application{
 
 		enterBtn.setOnAction((event) -> {
 			if(FileIO.usernames().contains(txtUserName.getText())) {
-				createUserError.setText("The username entered is already taken, please enter a new username");
+				//new DuplicateFoundException(txtUserName.getText());
+				//createUserError.setText("The username entered is already taken, please enter a new username");
+				createUserError.setText((new DuplicateFoundException(txtUserName.getText())).getMessage());
 				createUserError.setVisible(true);
 				txtUserName.setPromptText(txtUserName.getText());
 				txtUserName.clear();
@@ -255,6 +296,9 @@ public class GUI extends Application{
 		historyBtn.setOnAction(e -> {
 			
 			mainPane.setCenter(makeHistoryPane());
+
+			currentTab.setText("HISTORY");
+
 			historyBtn.setDisable(true);
 			userBtn.setDisable(false);
 			dashboardBtn.setDisable(false);
@@ -264,6 +308,7 @@ public class GUI extends Application{
 		userBtn.setOnAction(e -> {
 			
 			mainPane.setCenter(makeUserPane());
+			currentTab.setText("USER SETTINGS");
 			historyBtn.setDisable(false);
 			userBtn.setDisable(true);
 			dashboardBtn.setDisable(false);
@@ -273,6 +318,7 @@ public class GUI extends Application{
 		dashboardBtn.setOnAction(e -> {
 			
 			mainPane.setCenter(makeDashboardPane());
+			currentTab.setText("DASHBOARD");
 			historyBtn.setDisable(false);
 			userBtn.setDisable(false);
 			dashboardBtn.setDisable(true);
@@ -280,6 +326,7 @@ public class GUI extends Application{
 			exerciseBtn.setDisable(false);
 		});
 			foodBtn.setOnAction(e -> {mainPane.setCenter(makeFoodPane());
+			currentTab.setText("FOOD");
 			historyBtn.setDisable(false);
 			userBtn.setDisable(false);
 			dashboardBtn.setDisable(false);
@@ -287,6 +334,7 @@ public class GUI extends Application{
 			exerciseBtn.setDisable(false);
 		});
 			exerciseBtn.setOnAction(e -> {mainPane.setCenter(makeExercisePane());
+			currentTab.setText("EXERCISE");
 			historyBtn.setDisable(false);
 			userBtn.setDisable(false);
 			dashboardBtn.setDisable(false);
@@ -298,12 +346,28 @@ public class GUI extends Application{
 			btn.setMinHeight(sH / 6);
 			btn.setMinWidth(sW / buttons.size());
 			btn.setStyle("-fx-background-insets: 0, 0, 1, 2");
-		
 		}
 		pane.getChildren().addAll(buttons);
 		return pane;
 	}
 	
+	private static HBox topPane(){
+		HBox top = new HBox(300);
+		top.setAlignment(Pos.TOP_RIGHT);
+		Button close = new Button("Close");
+		close.setStyle("-fx-font-size: 20px");
+		close.setAlignment(Pos.TOP_RIGHT);
+		close.setOnAction(e -> {FileIO.writeUserInfo(currentUser);
+								Platform.exit();
+								System.exit(0);
+		currentTab.setAlignment(Pos.TOP_CENTER);
+		});
+		top.setBackground(new Background(myBI));
+		//top.setStyle("-fx-border-color: black");
+		top.setStyle("-fx-background-color: #E0FFFF");
+		top.getChildren().addAll(currentTab, close);
+		return top;
+	}
 	/**
 	 * Allows the user to view and edit all of their personal information
 	 * @return an HBox with all of the information and fields necessary to change the information
@@ -314,6 +378,19 @@ public class GUI extends Application{
 		VBox textboxes = new VBox(30);
 		VBox buttons = new VBox(30);
 		
+
+		Button logOutBtn = new Button("Logout");
+		logOutBtn.setMinSize(100, 100);
+		
+		logOutBtn.setOnAction(e -> {
+			currentUser = null;
+			mainPane.setCenter(makeLoginPane());
+			btnPane.setVisible(false);
+			mainPane.setBackground(new Background(myBI));
+		
+		});
+		
+
 		
 		
 		//allSettings.setStyle("-fx-background-color: #25BDB1");
@@ -408,7 +485,7 @@ public class GUI extends Application{
 							options.getChildren().addAll(name, gender, age, height, weight, calorieLimit);
 		textboxes.getChildren().addAll(changeName, changeGender, changeAge, changeHeight, changeWeight, changeCalorieLimit);
 		buttons.getChildren().addAll(setName, setGender, setAge, setHeight, setWeight, setCalorieLimit);
-		allSettings.getChildren().addAll(options, textboxes, buttons, wrongInput);
+		allSettings.getChildren().addAll(options, textboxes, buttons, wrongInput, logOutBtn);
 		
 		
 		
@@ -449,10 +526,13 @@ public class GUI extends Application{
 		ComboBox<String> history = new ComboBox<String>();
 		history.getItems().addAll(currentUser.getHistory().getKeySet());
 		history.setEditable(true);
-		Button b = new Button("Press");
+		history.setPromptText("Enter date here");
+		Button b = new Button("Enter");
 		Label calorieInfo = new Label("Calories");
 		Label foods = new Label("Foods");
 		Label exercises = new Label("Exercises");
+		Label dateInputError = new Label("The inputted value for date is not a valid date");
+		dateInputError.setVisible(false);
 
 		
 		lists.setAlignment(Pos.CENTER);
@@ -462,30 +542,67 @@ public class GUI extends Application{
 		
 		lists.getChildren().addAll(foods, exercises);
 		choices.getChildren().addAll(history, b);
-		info.getChildren().addAll(choices, calorieInfo, lists);
+		info.getChildren().addAll(choices, dateInputError, calorieInfo, lists);
 		
-		b.setOnAction(e -> {calorieInfo.setText(currentUser.getHistory().retrieveDateTest(history.getValue()).basicInfo());
-							foods.setText(currentUser.getHistory().retrieveDateTest(history.getValue()).foodInfo());
-							exercises.setText(currentUser.getHistory().retrieveDateTest(history.getValue()).exerciseInfo());
+		b.setOnAction(e -> {if(currentUser.getHistory().containsLog(history.getValue())) {
+								calorieInfo.setText(currentUser.getHistory().retrieveLog(history.getValue()).basicInfo());
+								foods.setText(currentUser.getHistory().retrieveLog(history.getValue()).foodInfo());
+								exercises.setText(currentUser.getHistory().retrieveLog(history.getValue()).exerciseInfo());
+								dateInputError.setVisible(false);
+							}
+							else if(!currentUser.getHistory().validDateChecker(history.getValue())){
+								dateInputError.setText("The inputted value for the date is not a valid date");
+								dateInputError.setVisible(true);
+							}
+							else {
+								dateInputError.setText("The inputted value for the date has no log");
+								dateInputError.setVisible(true);
+							}
 							});
 		
-		
+
 		BackgroundImage myBI= new BackgroundImage(new Image("background2.png",32,32,false,true),
 		        BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, new BackgroundSize(830, 500, false, false, true, true)
 		          );
 		//then you set to your node
+
 		info.setBackground(new Background(myBI));
 	
 
 		return info;	
 	}
 
-	private static BorderPane makeDashboardPane() {
-		BorderPane pane = new BorderPane();
 
-		Label lbl = new Label("Dashboard page test!");
-		pane.setCenter(lbl);
-		//then you set to your node
+	private static VBox makeDashboardPane() {
+		VBox pane = new VBox();
+
+		Label nameLbl = new Label(currentUser.getName() + "'s Dashboard");
+		Label timeLbl = new Label("Today is " + currentUser.getHistory().getCurrentDailyLog().getDate().toString());
+		Label calLbl = new Label(currentUser.getHistory().getCurrentDailyLog().getcaloriesConsumed() + "/" + currentUser.getHistory().getCalorieLimit() + " Calories consumed");
+		Label calBurnLbl = new Label(currentUser.getHistory().getCurrentDailyLog().getExercises().size() +
+				" Exercises completed, " + currentUser.getHistory().getCurrentDailyLog().getCaloriesBurned() + " Calories burned");
+		pane.setAlignment(Pos.TOP_CENTER);
+		nameLbl.setFont(Font.font("Verdana", FontWeight.BOLD, 25));
+		nameLbl.setTextFill(Color.BLACK);
+		nameLbl.setPadding(new Insets(30, 0, 0, 0));
+		nameLbl.setAlignment(Pos.TOP_CENTER);
+		//nameLbl.setStyle("-fx-font: 24 arial;");
+		calLbl.setFont(Font.font("arial", 17));
+		timeLbl.setFont(Font.font("arial", FontWeight.EXTRA_BOLD, 17));
+		calBurnLbl.setFont(Font.font("arial", 17));
+		pane.setSpacing(20);
+		pane.getChildren().addAll(nameLbl, timeLbl, calLbl, calBurnLbl);
+		
+		ArrayList<PieChart.Data> foodList = new ArrayList<PieChart.Data>();
+		for(FoodItem food : currentUser.getHistory().getCurrentDailyLog().getFoodsEaten()) {
+			foodList.add(new PieChart.Data(food.getName(), food.getCalories()));
+		}
+	
+		ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(foodList);         
+		PieChart foodChart = new PieChart(pieChartData);
+        foodChart.setTitle("Calorie Breakdown");
+        pane.getChildren().add(foodChart);
+		
 		pane.setBackground(new Background(myBI));
 		return pane;
 	}
@@ -507,10 +624,11 @@ public class GUI extends Application{
 		//List of Food
 		ListView<FoodItem> listview = new ListView<FoodItem>();
 		listview.setMaxWidth(200);
-		
-			//for(FoodItem food: currentUser.getFoodList().getFoods()) {
-				//listview.getItems().add(food);
-			//}
+
+			for(FoodItem food: currentUser.getFoodList().getFoods()) {
+				listview.getItems().add(food);
+			}
+
 		
 		//Button to log food
 		Button logFood = new Button("Log");
@@ -522,6 +640,7 @@ public class GUI extends Application{
 		
 		//Left side in vbox
 		VBox left = new VBox(search, listview, logFood);
+
 		
 		
 		
@@ -595,25 +714,177 @@ public class GUI extends Application{
 		
 		Button addExercise = new Button("Add an Exercise");
 		addExercise.setOnAction(e->{} );
+
 		
 		
-		TextField search = new TextField();
+		//Right side
+
 		
-		search.setOnKeyTyped(e ->{
+		Label name = new Label("Name : ");
+		Label calories = new Label("Calories : ");
+		Label confirm = new Label();
+		
+		
+		TextField enterName = new TextField();
+		TextField enterCalories = new TextField();
+		
+		//Name
+		HBox nameField = new HBox(name, enterName);
+		
+		//Calories
+		HBox calorieField = new HBox(calories, enterCalories);
+		
+		Button addFood = new Button("Add a Food");
+		
+		addFood.setOnAction(e->{ 
+			if(checkSettingInput(e, enterCalories)) {
+			Exercise exercise  = new RepExercise(null, 0, 0, 0);
+			if(currentUser.getFoodList().addFood(enterName.getText(), Integer.parseInt(enterCalories.getText()))) {
+				System.err.println("ALL FOOD!");
+			}
+			else {
+				System.err.println("lmao nope");
+			}
+			listview.getItems().add(exercise);
+			confirm.setText("The food has been successfully added!");
+			}
+			else {
+				confirm.setText("Not valid input for a food");
+			}
 			
-				
-		});
+		} );
 		
-		HBox buttons = new HBox(logExercise, addExercise);
-		VBox pane = new VBox(search, listview, buttons);
+		//Right side VBox
+		
+
+		VBox right = new VBox(nameField, calorieField, addFood, confirm);
+		
+		//Hbox to house left and right
+		HBox whole = new HBox(right, right);
 		BorderPane panel = new BorderPane();
-		panel.setCenter(pane);
+
+		panel.setCenter(whole);
 		
 		//then you set to your node
 		panel.setBackground(new Background(myBI));
-		
 		return panel;
 	}
+
+	private static BorderPane makeExercisePane1() {
+		
+		//Left Side
+		
+		//Search bar
+		
+		
+		
+		//List of Exercises
+		ListView<Exercise> listview = new ListView<Exercise>();
+		listview.setMaxWidth(200);
+			for(Exercise exercise: currentUser.getExerciseList().getExercises()) {
+				listview.getItems().add(exercise);
+				System.out.println(exercise.getCaloriesBurned());
+			}
+			
+			TextField search = new TextField();
+			search.setOnKeyTyped(e ->{
+				ListView<Exercise> listNew = new ListView<Exercise>();
+				listview.setMaxWidth(415);
+				for(Exercise exercise: currentUser.getExerciseList().getExercises()) {
+					if(exercise.getName().startsWith(search.getText())) {
+						listNew.getItems().add(exercise);
+					}
+					
+				}
+				//listview = listNew;
+				
+				
+				
+			});
+		
+		//Button to log exercises
+		Button logExercise = new Button("Log");
+		logExercise.setPadding(new Insets(0,20,0,20));
+		logExercise.setOnAction(e->{
+		currentUser.getHistory().getCurrentDailyLog().addExercise(
+				listview.getSelectionModel().getSelectedItem());
+		});
+		
+		//Left side in vbox
+		VBox left = new VBox(search, listview, logExercise);
+		
+		
+		
+		//Right side
+
+		//Aerobic Exercise
+		
+		
+			//Labels and textFields for entry
+		Label name = new Label("Name ");
+		Label duration = new Label("Duration ");
+		Label caloriesBurned = new Label("Calories Burned ");
+		
+		TextField aname = new TextField();
+		TextField aduration = new TextField();
+		TextField acaloriesBurned = new TextField();
+
+			//HBoxes for grouping
+		HBox enterAName = new HBox(name, aname);
+		HBox enterADuration = new HBox(duration, aduration);
+		HBox enterACaloriesBurned = new HBox(caloriesBurned, acaloriesBurned);
+		
+			//Button for logging aerobic exercise
+		Button logAerobicExercise = new Button("Log Exercise");
+		logAerobicExercise.setOnAction(e ->{
+			if(checkSettingInput(e, acaloriesBurned) && aduration.getText().length() == 5 && aduration.getText().contains(":"))
+			{
+				Exercise exercise  = new AerobicExercise(aname.getText(), aduration.getText(), Integer.parseInt(acaloriesBurned.getText()));
+				currentUser.getExerciseList().getExercises().add(exercise);
+				listview.getItems().add(exercise);
+			}
+			});
+		
+		//Rep exercise
+		
+		Label nameR = new Label("Name ");
+		Label repsR = new Label("Reps ");
+		Label intensityR = new Label("Intensity ");
+		Label caloriesBurnedR = new Label("Calories Burned ");
+		
+		TextField enterRName = new TextField();
+		TextField enterRReps = new TextField();
+		TextField enterRIntensity = new TextField();
+		TextField enterRCaloriesBurned = new TextField();
+
+			//HBoxes for grouping
+		HBox nameGroupR = new HBox(nameR, enterRName);
+		HBox repsGroupR = new HBox(repsR, enterRReps);
+		HBox intensityGroupR = new HBox(intensityR, enterRIntensity);
+ 		HBox caloriesBurnedGroupR = new HBox(caloriesBurnedR, enterRCaloriesBurned);
+		
+			//Button for logging Rep Exercise
+		Button logRepExercise = new Button("Log Exercise");
+		logRepExercise.setOnAction(e ->{
+			if(checkSettingInput(e, enterRReps) && checkSettingInput(e, enterRIntensity) && checkSettingInput(e, enterRCaloriesBurned))
+			{
+				Exercise exercise  = new AerobicExercise(enterRName.getText(), enterRReps.getText(), Integer.parseInt(enterRCaloriesBurned.getText()));
+				currentUser.getExerciseList().getExercises().add(exercise);
+				listview.getItems().add(exercise);
+			}
+			});
+		
+		VBox right = new VBox(enterAName, enterADuration, enterACaloriesBurned, logAerobicExercise
+				,nameGroupR, repsGroupR, intensityGroupR, caloriesBurnedGroupR, logRepExercise);
+		
+		HBox whole = new HBox(left, right);
+		BorderPane panel = new BorderPane();
+		panel.setCenter(whole);
+		panel.setBackground(new Background(myBI));
+		return panel;
+		
+		
+		}
 
 
 } 

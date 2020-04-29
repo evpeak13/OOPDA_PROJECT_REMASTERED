@@ -8,7 +8,7 @@ public class User implements Serializable{
 
 	private static final long serialVersionUID = 3999007488314647320L;
     private String name, gender, username;
-    private int age, height, weight;
+    private int age, height, weight, BMI;
     private History history;
     private Schedule schedule;
     private FoodList foodlist;
@@ -32,9 +32,10 @@ public class User implements Serializable{
         this.age = age;
         this.height = height;
         this.weight = weight;
+        this.BMI = CalculateBMI.calculate((x, y) -> ((703 * x)/(y * y)), weight, height);
         history = new History(calorieLimit);
         schedule = new Schedule();
-        foodlist = FileIO.deserializeFoodList();	
+        foodlist = (FoodList) FileIO.deserialize("foodlist.ser");	
         
     }
     /**
@@ -48,6 +49,7 @@ public class User implements Serializable{
 		this.height = 66;  //5ft 6in
 		this.weight = 200; //200 lbs
 	}
+	
 	
 	/**
 	 * Standard getter for the username field
@@ -161,6 +163,12 @@ public class User implements Serializable{
 		this.history = history;
 	}
 	
+	public int getBMI() {
+		return BMI;
+	}
+	public void setBMI(int bMI) {
+		BMI = bMI;
+	}
 	/**
 	 * Changes the day of the log. If the log is already on the current day then nothing happens
 	 */
