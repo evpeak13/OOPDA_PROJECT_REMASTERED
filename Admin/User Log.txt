@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T02:19:17.587949Z</date>
+  <millis>1588126757587</millis>
+  <nanos>949000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>poop successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T02:20:26.913733Z</date>
+  <millis>1588126826913</millis>
+  <nanos>733000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>poop successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T02:22:25.037353Z</date>
+  <millis>1588126945037</millis>
+  <nanos>353000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>poop successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T02:26:46.395484Z</date>
+  <millis>1588127206395</millis>
+  <nanos>484000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>poop successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T02:32:22.037612Z</date>
+  <millis>1588127542037</millis>
+  <nanos>612000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>poop successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T04:05:23.195463Z</date>
+  <millis>1588133123195</millis>
+  <nanos>463000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>poop successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T04:06:01.967290Z</date>
+  <millis>1588133161967</millis>
+  <nanos>290000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>Joe successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T04:08:38.792138Z</date>
+  <millis>1588133318792</millis>
+  <nanos>138000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>bmi test successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T04:13:54.345170Z</date>
+  <millis>1588133634345</millis>
+  <nanos>170000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>bmi test successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T04:14:12.476855Z</date>
+  <millis>1588133652476</millis>
+  <nanos>855000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>bmi test successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T04:14:57.516412Z</date>
+  <millis>1588133697516</millis>
+  <nanos>412000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>bmi test successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T04:15:14.937508Z</date>
+  <millis>1588133714937</millis>
+  <nanos>508000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>bmi test successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T04:15:52.339653Z</date>
+  <millis>1588133752339</millis>
+  <nanos>653000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>bmi test successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T04:16:31.569232Z</date>
+  <millis>1588133791569</millis>
+  <nanos>232000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>bmi test successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T04:16:51.216884Z</date>
+  <millis>1588133811216</millis>
+  <nanos>884000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>bmi test successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T18:35:46.530891Z</date>
+  <millis>1588185346530</millis>
+  <nanos>891000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>bmi test successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T18:54:49.528874Z</date>
+  <millis>1588186489528</millis>
+  <nanos>874000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>bmi test successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T18:56:54.836111Z</date>
+  <millis>1588186614836</millis>
+  <nanos>111000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>poop successfully logged in</message>
+</record>
+<record>
+  <date>2020-04-29T18:57:11.143646Z</date>
+  <millis>1588186631143</millis>
+  <nanos>646000</nanos>
+  <sequence>1</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>bmi test successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T18:57:58.681029Z</date>
+  <millis>1588186678681</millis>
+  <nanos>29000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>bmi test successfully logged in</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-04-29T18:59:22.814003Z</date>
+  <millis>1588186762814</millis>
+  <nanos>3000</nanos>
+  <sequence>0</sequence>
+  <logger>v1.GUI</logger>
+  <level>INFO</level>
+  <class>v1.FileIO</class>
+  <method>logLogin</method>
+  <thread>14</thread>
+  <message>bmi test successfully logged in</message>
+</record>
+</log>
