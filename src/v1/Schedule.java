@@ -100,7 +100,10 @@ public class Schedule implements Serializable {
 		}
 	}
 	
-
+	public String toString() {
+		//for(Exercise exercise: this.getSchedule())
+		return null;
+	}
 	
 	
 	

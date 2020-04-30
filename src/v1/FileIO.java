@@ -28,18 +28,18 @@ public class FileIO {
 	
 	public static void writeUserInfo(User user) {
 		new File("Admin").mkdir();
-		new File("Admin\\Users").mkdir();
+		new File("Admin/Users").mkdir();
 		try
 		{
-			new File("Admin\\Usernames.txt").createNewFile();
-			new File("Admin\\User Log.txt").createNewFile();
-			//new File("Admin\\Exercises.txt").createNewFile();
+			new File("Admin/Usernames.txt").createNewFile();
+			new File("Admin/User Log.txt").createNewFile();
+			//new File("Admin/Exercises.txt").createNewFile();
 		if(!usernames().contains(user.getUsername())) {
-		   Writer usernameWriter = new FileWriter("Admin\\Usernames.txt", APPEND_MODE);
+		   Writer usernameWriter = new FileWriter("Admin/Usernames.txt", APPEND_MODE);
 		   usernameWriter.write(user.getUsername() + "\n");
 		   usernameWriter.close();
 		}
-		   FileOutputStream fileStream = new FileOutputStream("Admin\\Users\\" + user.getUsername() + ".ser");
+		   FileOutputStream fileStream = new FileOutputStream("Admin/Users/" + user.getUsername() + ".ser");
 		   ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
 		   objectStream.writeObject(user);
 		   objectStream.close();
@@ -85,7 +85,7 @@ public class FileIO {
 	public static ArrayList<String> usernames(){
 		ArrayList<String> usernames = new ArrayList<>();
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("Admin\\Usernames.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("Admin/Usernames.txt"));
 			String line = br.readLine();
 			while(line != null) {
 				usernames.add(line);
@@ -101,7 +101,7 @@ public class FileIO {
 	
 	public static void logLogin(String username) {
 		try {
-			FileHandler filehandler = new FileHandler("Admin\\User Log.txt", APPEND_MODE);
+			FileHandler filehandler = new FileHandler("Admin/User Log.txt", APPEND_MODE);
 			LOGGER.addHandler(filehandler);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -117,7 +117,7 @@ public class FileIO {
 	 */
 	public static void serializeLists(ExerciseList e) {
 		try {
-			FileOutputStream file = new FileOutputStream("Admin\\exerciselist.ser");
+			FileOutputStream file = new FileOutputStream("Admin/exerciselist.ser");
 			ObjectOutputStream out = new ObjectOutputStream(file);
 			out.writeObject(e);
 			out.close();
@@ -128,7 +128,7 @@ public class FileIO {
 	}
 	public static void serializeLists(FoodList f) {
 		try {
-			FileOutputStream file = new FileOutputStream("Admin\\foodlist.ser");
+			FileOutputStream file = new FileOutputStream("Admin/foodlist.ser");
 			ObjectOutputStream out = new ObjectOutputStream(file);
 			out.writeObject(f);
 			out.close();

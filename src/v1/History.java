@@ -130,7 +130,10 @@ public class History implements Serializable {
 	}
 	
 	public boolean validDateChecker(String date) {
-		if(date.split("/").length == 3) {
+		if(date == null){
+			return false;
+		}
+		else if(date.split("/").length == 3) {
 			try {
 				String[] dateSplit = date.split("/");
 				LocalDate.of(Integer.parseInt(dateSplit[2]), Integer.parseInt(dateSplit[0]), Integer.parseInt(dateSplit[1]));

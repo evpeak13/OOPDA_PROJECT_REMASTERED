@@ -24,17 +24,6 @@ public class FoodItem implements Serializable{
 	 */
 	private int calories;
 	
-	
-	private int quanity = 1;
-	
-	public int getQuanity() {
-		return quanity;
-	}
-
-	public void setQuanity(int quanity) {
-		this.quanity = quanity;
-	}
-
 	/**
 	 * Constructs a FoodItem from a name and calorie amount 
 	 * @param name
