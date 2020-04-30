@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -207,7 +208,7 @@ public class GUI extends Application{
 		useUserBtn.setOnAction((event) -> {
 
 			if(FileIO.usernames().contains(userSelection.getValue())) {
-				currentUser = (User)FileIO.deserialize("Admin//Users//" + userSelection.getValue() + ".ser");
+				currentUser = (User)FileIO.deserialize("Admin\\Users\\" + userSelection.getValue() + ".ser");
 				currentUser.getHistory().logDate();
 				mainPane.setCenter(makeDashboardPane());
 				currentTab.setText("DASHBOARD");
@@ -501,7 +502,7 @@ public class GUI extends Application{
 		timeLbl.setFont(Font.font("arial", FontWeight.EXTRA_BOLD, 17));
 		calBurnLbl.setFont(Font.font("arial", 17));
 
-		pane.setSpacing(20);
+		pane.setSpacing(10);
 
 		ComboBox<String> history = new ComboBox<String>();
 		history.getItems().addAll(currentUser.getHistory().getKeySet());
@@ -543,7 +544,7 @@ public class GUI extends Application{
 			calLbl.setText(currentUser.getHistory().retrieveLog(history.getValue()).getcaloriesConsumed()
 					+ "/" + currentUser.getHistory().getCalorieLimit() + " Calories consumed");
 			calBurnLbl.setText(currentUser.getHistory().retrieveLog(history.getValue()).getExercises().size()
-					+" Exercises completed, " + currentUser.getHistory().getCurrentDailyLog().getCaloriesBurned()
+					+" Exercises completed, " + currentUser.getHistory().retrieveLog(history.getValue()).getCaloriesBurned()
 					+ " Calories burned");
 			dateInputError.setVisible(false);
 		}
@@ -585,7 +586,7 @@ public class GUI extends Application{
 		calLbl.setFont(Font.font("arial", 17));
 		timeLbl.setFont(Font.font("arial", FontWeight.EXTRA_BOLD, 17));
 		calBurnLbl.setFont(Font.font("arial", 17));
-		pane.setSpacing(20);
+		pane.setSpacing(10);
 		pane.getChildren().addAll(nameLbl, timeLbl, calLbl, calBurnLbl);
 		
 		ArrayList<PieChart.Data> foodList = new ArrayList<PieChart.Data>();
