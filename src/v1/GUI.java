@@ -207,7 +207,7 @@ public class GUI extends Application{
 		useUserBtn.setOnAction((event) -> {
 
 			if(FileIO.usernames().contains(userSelection.getValue())) {
-				currentUser = (User)FileIO.deserialize("Admin/Users/" + userSelection.getValue() + ".ser");
+				currentUser = (User)FileIO.deserialize("Admin\\Users\\" + userSelection.getValue() + ".ser");
 				currentUser.getHistory().logDate();
 				mainPane.setCenter(makeDashboardPane());
 				currentTab.setText("DASHBOARD");
